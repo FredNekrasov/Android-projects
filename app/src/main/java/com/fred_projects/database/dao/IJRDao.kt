@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface IJRDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertOrUpdateRecord(jR: JRReps)
+    suspend fun insertRecord(jR: JRReps)
     @Delete
     suspend fun deleteRecord(jR: JRReps)
     @Query("SELECT * FROM JRReps")

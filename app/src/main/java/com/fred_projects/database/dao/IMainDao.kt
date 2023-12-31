@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface IMainDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertOrUpdateRecord(pw: PracticalWork)
+    suspend fun insertRecord(pw: PracticalWork)
     @Delete
     suspend fun deleteRecord(pw: PracticalWork)
     @Query("SELECT * FROM practical_works")

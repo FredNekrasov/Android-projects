@@ -28,7 +28,7 @@ class MSRepository(private val api: IMathService, private val mathDao: IMathDao)
                     else {
                         val entity = MathEntity(expression, body.result)
                         mathDao.deleteMathInfo(expression)
-                        mathDao.insertOrUpdateRecord(entity)
+                        mathDao.insertMathInfo(entity)
                         msf.emit(Resource.SUCCESS to entity.toMineMath())
                     }
                 } else msf.emit((Resource.SOMETHING_WRONG to result?.toMineMath()))

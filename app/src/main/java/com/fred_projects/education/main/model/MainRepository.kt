@@ -8,7 +8,7 @@ class MainRepository(private val dao: IMainDao) : IMainRepository {
 
     override suspend fun deleteRecord(pw: PracticalWork) = dao.deleteRecord(pw)
 
-    override suspend fun insertOrUpdateRecord(pw: PracticalWork) = dao.insertOrUpdateRecord(pw)
+    override suspend fun insertOrUpdateRecord(pw: PracticalWork) = dao.insertRecord(pw)
 
     override suspend fun getRecord(id: Int): PracticalWork? = dao.getRecord(id)
 }

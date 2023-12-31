@@ -22,25 +22,31 @@ import com.fred_projects.ui.FredRadioButton
 fun SortingSection(sortingPW: SortingPW = SortingPW.Date(SortType.Descending), onSortingChange: (SortingPW) -> Unit) {
     Column(Modifier.fillMaxWidth()) {
         LazyRow(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-            item { Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                FredRadioButton(inf = stringResource(R.string.PW), selected = sortingPW is SortingPW.PW, onSelect = { onSortingChange(SortingPW.PW(sortingPW.sortType)) })
-                Spacer(Modifier.width(8.dp))
-                FredRadioButton(inf = stringResource(R.string.Student), selected = sortingPW is SortingPW.Student, onSelect = { onSortingChange(SortingPW.Student(sortingPW.sortType)) })
-                Spacer(Modifier.width(8.dp))
-                FredRadioButton(inf = stringResource(R.string.Variant), selected = sortingPW is SortingPW.Variant, onSelect = { onSortingChange(SortingPW.Variant(sortingPW.sortType)) }) } }
-            item { Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                FredRadioButton(inf = stringResource(R.string.LVL), selected = sortingPW is SortingPW.LVL, onSelect = { onSortingChange(SortingPW.LVL(sortingPW.sortType)) })
-                Spacer(Modifier.width(8.dp))
-                FredRadioButton(inf = stringResource(R.string.Date), selected = sortingPW is SortingPW.Date, onSelect = { onSortingChange(SortingPW.Date(sortingPW.sortType)) })
-                Spacer(Modifier.width(8.dp))
-                FredRadioButton(inf = stringResource(R.string.Mark), selected = sortingPW is SortingPW.Mark, onSelect = { onSortingChange(SortingPW.Mark(sortingPW.sortType)) })
-                Spacer(Modifier.width(8.dp)) } }
+            item {
+                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                    FredRadioButton(stringResource(R.string.PW), sortingPW is SortingPW.PW) { onSortingChange(SortingPW.PW(sortingPW.sortType)) }
+                    Spacer(Modifier.width(8.dp))
+                    FredRadioButton(stringResource(R.string.Student), sortingPW is SortingPW.Student) { onSortingChange(SortingPW.Student(sortingPW.sortType)) }
+                    Spacer(Modifier.width(8.dp))
+                    FredRadioButton(stringResource(R.string.Variant), sortingPW is SortingPW.Variant) { onSortingChange(SortingPW.Variant(sortingPW.sortType)) }
+                }
+            }
+            item {
+                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                    FredRadioButton(stringResource(R.string.LVL), sortingPW is SortingPW.LVL) { onSortingChange(SortingPW.LVL(sortingPW.sortType)) }
+                    Spacer(Modifier.width(8.dp))
+                    FredRadioButton(stringResource(R.string.Date), sortingPW is SortingPW.Date) { onSortingChange(SortingPW.Date(sortingPW.sortType)) }
+                    Spacer(Modifier.width(8.dp))
+                    FredRadioButton(stringResource(R.string.Mark), sortingPW is SortingPW.Mark) { onSortingChange(SortingPW.Mark(sortingPW.sortType)) }
+                    Spacer(Modifier.width(8.dp))
+                }
+            }
         }
         Spacer(Modifier.height(8.dp))
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround, verticalAlignment = Alignment.CenterVertically) {
-            FredRadioButton(inf = stringResource(R.string.ascending_sort), selected = sortingPW.sortType is SortType.Ascending, onSelect = { onSortingChange(sortingPW.copy(SortType.Ascending)) })
+            FredRadioButton(stringResource(R.string.ascending_sort), sortingPW.sortType is SortType.Ascending) { onSortingChange(sortingPW.copy(SortType.Ascending)) }
             Spacer(Modifier.width(8.dp))
-            FredRadioButton(inf = stringResource(R.string.descending_sort), selected = sortingPW.sortType is SortType.Descending, onSelect = { onSortingChange(sortingPW.copy(SortType.Descending)) })
+            FredRadioButton(stringResource(R.string.descending_sort), sortingPW.sortType is SortType.Descending) { onSortingChange(sortingPW.copy(SortType.Descending)) }
         }
     }
 }

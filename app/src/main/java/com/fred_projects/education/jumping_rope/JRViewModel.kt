@@ -25,7 +25,7 @@ class JRViewModel @Inject constructor(private val useCases: JRUseCases) : ViewMo
     init {
         getJRData()
     }
-    fun getJRData() {//sets & reps
+    fun getJRData() {
         getDataJob?.cancel()
         getDataJob = useCases.getJRData.getData().onEach {
             listItemsSF.emit(it)

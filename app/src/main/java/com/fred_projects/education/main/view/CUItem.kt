@@ -83,30 +83,27 @@ fun CUItem(navController: NavController, onClick: () -> Uri, viewModel: AddEditV
                 }, Icons.Default.Done, stringResource(R.string.add)
             )
         }, scaffoldState = scaffoldState) { padding ->
-        Column(
-            Modifier
-            .fillMaxSize()
-            .padding(padding), Arrangement.Center, Alignment.CenterHorizontally) {
+        Column(Modifier.fillMaxSize().padding(padding), Arrangement.Center, Alignment.CenterHorizontally) {
             Text("${stringResource(R.string.add)}/${stringResource(R.string.update)}", style = MaterialTheme.typography.h4)
             Spacer(Modifier.height(32.dp))
             LazyColumn {
                 item {
                     Column(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.CenterHorizontally) {
-                        FredTextField(value = pwName, onChangeNumber = { pwName = it }, R.string.enterPW)
+                        FredTextField(pwName, { pwName = it }, R.string.enterPW)
                         Spacer(Modifier.height(8.dp))
-                        FredTextField(value = student, onChangeNumber = { student = it }, R.string.enterStudent)
+                        FredTextField(student, { student = it }, R.string.enterStudent)
                         Spacer(Modifier.height(8.dp))
-                        FredTextField(value = variant, onChangeNumber = { if (((it.toIntOrNull() != null) && (it.toInt() > 0)) || (it == "")) variant = it }, R.string.enterVariant)
+                        FredTextField(variant, { if (((it.toIntOrNull() != null) && (it.toInt() > 0)) || (it == "")) variant = it }, R.string.enterVariant)
                         Spacer(Modifier.height(8.dp))
-                        FredTextField(value = lvl, onChangeNumber = { if (((it.toIntOrNull() != null) && (it.toInt() > 0)) || (it == "")) lvl = it }, R.string.enterLVL)
+                        FredTextField(lvl, { if (((it.toIntOrNull() != null) && (it.toInt() > 0)) || (it == "")) lvl = it }, R.string.enterLVL)
                         Spacer(Modifier.height(8.dp))
-                        FredTextField(value = date, onChangeNumber = { date = it }, R.string.enterDate)
+                        FredTextField(date, { date = it }, R.string.enterDate)
                         Spacer(Modifier.height(8.dp))
-                        FredTextField(value = mark, onChangeNumber = { if (((it.toIntOrNull() != null) && (it.toInt() > 0)) || (it == "")) mark = it }, R.string.enterMark)
+                        FredTextField(mark, { if (((it.toIntOrNull() != null) && (it.toInt() > 0)) || (it == "")) mark = it }, R.string.enterMark)
                         Spacer(Modifier.height(8.dp))
-                        FredButton(click = { photo = onClick.invoke().toString() }, inf = stringResource(R.string.take_picture))
-                        FredButton(click = { navController.navigateUp() }, inf = stringResource(R.string.go_back))
-                        Image(painter = rememberAsyncImagePainter(photo.toUri()), contentDescription = stringResource(R.string.photo), Modifier.height(200.dp))
+                        FredButton({ photo = onClick.invoke().toString() }, stringResource(R.string.take_picture))
+                        FredButton({ navController.navigateUp() }, stringResource(R.string.go_back))
+                        Image(rememberAsyncImagePainter(photo.toUri()), stringResource(R.string.photo), Modifier.height(200.dp))
                     }
                 }
             }

@@ -1,10 +1,12 @@
 package com.fred_projects.education.solving_the_inequality.mvvm
 
+import android.graphics.drawable.shapes.Shape
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.material.Shapes
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -13,6 +15,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewModelScope
@@ -27,7 +31,7 @@ import kotlinx.coroutines.launch
 fun EleventhPW(nav: NavController, viewModel: VM) {
     Column(Modifier.fillMaxSize(), Arrangement.Center, Alignment.CenterHorizontally) {
         NinthPW(Modifier)
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(16.dp).shadow(8.dp, ambientColor = Color.Black))
         val error = stringResource(R.string.error)
         val inequality = stringResource(R.string.inequality)
         Text("${stringResource(R.string.first_number)}x + ${stringResource(R.string.second_number)} < 0", Modifier)

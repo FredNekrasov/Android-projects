@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 class JRRepository(private val dao: IJRDao) : IJRRepository {
     override suspend fun insertOrUpdateRecord(jR: JRReps) {
-        dao.insertOrUpdateRecord(jR)
+        dao.insertRecord(jR)
     }
     override suspend fun deleteRecord(jR: JRReps) {
         dao.deleteRecord(jR)

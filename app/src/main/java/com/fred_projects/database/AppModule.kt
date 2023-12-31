@@ -17,7 +17,9 @@ object AppModule {
     @Provides
     @Singleton
     fun provideMainDB(app: Application): MainDB {
-        return Room.databaseBuilder(app, MainDB::class.java, MainDB.MAIN_DB).allowMainThreadQueries()
-            .addTypeConverter(Converters(GsonParser(Gson()))).build()
+        return Room.databaseBuilder(app, MainDB::class.java, MainDB.MAIN_DB)
+            .allowMainThreadQueries()
+            .addTypeConverter(Converters(GsonParser(Gson())))
+            .build()
     }
 }

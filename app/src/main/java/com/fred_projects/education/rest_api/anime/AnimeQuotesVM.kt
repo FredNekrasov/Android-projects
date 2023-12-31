@@ -18,7 +18,6 @@ class AnimeQuotesVM @Inject constructor(private val repository: IAQRepository) :
     private val resultMSF = MutableStateFlow<Pair<Resource, List<AnimeQuotes>?>>(Resource.NONE to null)
     val resultSF = resultMSF.asStateFlow()
     private var searchJob: Job? = null
-
     fun onSearch(anime: String) {
         if (anime.isEmpty() || anime.isBlank()) {
             resultMSF.value = (Resource.ERROR to null)

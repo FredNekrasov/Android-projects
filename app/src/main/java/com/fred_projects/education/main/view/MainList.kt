@@ -76,11 +76,9 @@ fun MainList(navController: NavController, context: Context, viewModel: MainList
             AnimatedVisibility(
                 state.value.isSortingSectionVisible,
                 enter = fadeIn() + slideInVertically(),
-                exit = fadeOut() + slideOutVertically()) {
-                SortingSection(
-                    sortingPW = state.value.sortingPW,
-                    onSortingChange = { viewModel.onEvent(PWsEvent.Sort(it)) }
-                )
+                exit = fadeOut() + slideOutVertically()
+            ) {
+                SortingSection(state.value.sortingPW) { viewModel.onEvent(PWsEvent.Sort(it)) }
             }
             Spacer(Modifier.height(16.dp))
             FredTextField(searchData, {

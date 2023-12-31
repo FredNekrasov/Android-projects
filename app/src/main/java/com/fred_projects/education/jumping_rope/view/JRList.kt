@@ -51,9 +51,7 @@ fun JRList(viewModel: JRViewModel, context: ComponentActivity) {
     val recordDeleted = stringResource(R.string.record_deleted)
     val errors = stringResource(R.string.error)
     Scaffold(topBar = {
-        TopAppBar(title = { Text(stringResource(R.string.CRUD), style = MaterialTheme.typography.h6) },
-            actions = { FredIconButton(click = { viewModel.getJRData() }, image = Icons.Default.Refresh, description = stringResource(R.string.menu)) }
-        )
+        TopAppBar({ Text(stringResource(R.string.CRUD), style = MaterialTheme.typography.h6) }, actions = { FredIconButton({ viewModel.getJRData() }, image = Icons.Default.Refresh, description = stringResource(R.string.menu)) })
     }, scaffoldState = scaffoldState) { padding ->
         Column(Modifier.padding(padding), Arrangement.Center, Alignment.CenterHorizontally) {
             Spacer(Modifier.height(16.dp))

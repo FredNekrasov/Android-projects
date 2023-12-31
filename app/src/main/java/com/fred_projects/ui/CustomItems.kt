@@ -1,45 +1,29 @@
 package com.fred_projects.ui
 
-import android.content.Context
-import android.content.Intent
+import android.content.*
 import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
-import androidx.compose.material.Button
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.RadioButton
-import androidx.compose.material.RadioButtonDefaults
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
-import androidx.compose.material.TopAppBar
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.primarySurface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.*
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.*
 import androidx.navigation.NavController
 import com.fred_projects.MainActivity
 import com.fred_projects.R
-import com.fred_projects.education.ScreensRoute
-import com.fred_projects.education.SecondLW
+import com.fred_projects.education.*
 import com.fred_projects.education.service_assignment.TestService
+import androidx.compose.ui.geometry.*
+import androidx.compose.ui.graphics.*
+import androidx.compose.ui.graphics.drawscope.clipPath
+
 
 @Composable
 fun FredButton(click: () -> Unit, inf: String, modifier: Modifier = Modifier){
@@ -98,3 +82,26 @@ fun FredTopBar(onClick: () -> Unit, onSort: () -> Unit, vector: ImageVector, tex
     )
 }
 fun ComponentActivity.message(text: String) = Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+
+@Composable
+fun FredCard(
+    modifier: Modifier,
+    mainColor: Color,
+    secondaryColor: Color,
+    cornerRadius: Dp = 10.dp,
+    cutCornerSize: Dp = 30.dp
+) {
+    Canvas(modifier){
+            val clipPath = Path().apply {
+                lineTo(size.width - cutCornerSize.toPx(), 0f)
+                lineTo(size.width, cutCornerSize.toPx())
+                lineTo(size.width, size.height)
+                lineTo(0f, size.height)
+                close()
+            }
+            clipPath(clipPath){
+                drawRoundRect(color = mainColor, size = size, cornerRadius = CornerRadius(cornerRadius.toPx()))
+                drawRoundRect(color = secondaryColor, topLeft = Offset(size.width - cutCornerSize.toPx(), -100f), size = Size(cutCornerSize.toPx() + 100f, cutCornerSize.toPx() + 100f), cornerRadius = CornerRadius(cornerRadius.toPx()))
+            }
+        }
+}

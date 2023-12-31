@@ -6,10 +6,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -34,37 +32,32 @@ fun AQScreen(navController: NavController, viewModel: AnimeQuotesVM = hiltViewMo
     var searchData by rememberSaveable { mutableStateOf("") }
     val state = viewModel.resultSF.collectAsState().value.first
     val res = viewModel.resultSF.collectAsState().value.second
-    Scaffold { padding ->
-        Column(
-            Modifier
-                .fillMaxSize()
-                .padding(padding), Arrangement.Center, Alignment.CenterHorizontally) {
-            Spacer(Modifier.height(16.dp))
-            Text(stringResource(R.string.anime_quotes))
-            Spacer(Modifier.height(8.dp))
-            Text(stringResource(R.string.aq_info))
-            Spacer(Modifier.height(16.dp))
-            FredTextField(searchData, { searchData = it }, R.string.anime)
-            Spacer(Modifier.height(8.dp))
-            FredButton(click = { viewModel.onSearch(searchData) }, inf = stringResource(R.string.search))
-            Spacer(Modifier.height(8.dp))
-            Text(
-                when(state) {
-                    Resource.LOADING -> stringResource(R.string.wait)
-                    Resource.SUCCESS -> stringResource(R.string.result_is)
-                    Resource.ERROR -> stringResource(R.string.error)
-                    Resource.NONE -> ""
-                    Resource.NO_INTERNET -> stringResource(R.string.no_internet)
-                    Resource.SOMETHING_WRONG -> stringResource(R.string.something_wrong)
-                }
-            )
-            FredButton({ navController.navigateUp() }, stringResource(R.string.go_back))
-            if (res != null) {
-                LazyColumn(Modifier.fillMaxSize()){
-                    items(res){ aq ->
-                        Spacer(Modifier.height(16.dp))
-                        AQListItem(aq,Modifier.fillMaxWidth())
-                    }
+    Column(Modifier.fillMaxSize(), Arrangement.Center, Alignment.CenterHorizontally) {
+        Spacer(Modifier.height(16.dp))
+        Text(stringResource(R.string.anime_quotes))
+        Spacer(Modifier.height(8.dp))
+        Text(stringResource(R.string.aq_info))
+        Spacer(Modifier.height(16.dp))
+        FredTextField(searchData, { searchData = it }, R.string.anime)
+        Spacer(Modifier.height(8.dp))
+        FredButton(click = { viewModel.onSearch(searchData) }, inf = stringResource(R.string.search))
+        Spacer(Modifier.height(8.dp))
+        Text(
+            when(state) {
+                Resource.LOADING -> stringResource(R.string.wait)
+                Resource.SUCCESS -> stringResource(R.string.result_is)
+                Resource.ERROR -> stringResource(R.string.error)
+                Resource.NONE -> ""
+                Resource.NO_INTERNET -> stringResource(R.string.no_internet)
+                Resource.SOMETHING_WRONG -> stringResource(R.string.something_wrong)
+            }
+        )
+        FredButton({ navController.navigateUp() }, stringResource(R.string.go_back))
+        if (res != null) {
+            LazyColumn(Modifier.fillMaxSize()){
+                items(res){ aq ->
+                    Spacer(Modifier.height(16.dp))
+                    AQListItem(aq,Modifier.fillMaxWidth())
                 }
             }
         }
