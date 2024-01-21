@@ -30,7 +30,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.lifecycleScope
 import com.fred_projects.R
-import com.fred_projects.education.jumping_rope.JRViewModel
+import com.fred_projects.education.jumping_rope.view_model.JRViewModel
 import com.fred_projects.education.jumping_rope.SensorAndAnimation
 import com.fred_projects.education.jumping_rope.view.StickMan
 import com.fred_projects.ui.FredButton

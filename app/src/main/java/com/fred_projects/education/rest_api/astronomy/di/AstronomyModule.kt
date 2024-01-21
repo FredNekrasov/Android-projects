@@ -18,18 +18,13 @@ import javax.inject.Singleton
 object AstronomyModule {
     @Provides
     @Singleton
-    fun provideAstronomyService(): IAstronomyService {
-        return Retrofit.Builder().baseUrl(IAstronomyService.BASE_URL).
-        addConverterFactory(GsonConverterFactory.create()).build().create(IAstronomyService::class.java)
-    }
+    fun provideAstronomyService(): IAstronomyService = Retrofit.Builder().baseUrl(IAstronomyService.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build().create(IAstronomyService::class.java)
     @Provides
     @Singleton
-    fun provideStarRepository(api: IAstronomyService, db: MainDB): IStarInfoRepository {
-        return StarInfoRepository(api, db.astronomyDao)
-    }
+    fun provideStarRepository(api: IAstronomyService, db: MainDB): IStarInfoRepository = StarInfoRepository(api, db.astronomyDao)
     @Provides
     @Singleton
-    fun provideGetStarInfo(repository: IStarInfoRepository): GetStarInfo {
-        return GetStarInfo(repository)
-    }
+    fun provideGetStarInfo(repository: IStarInfoRepository) = GetStarInfo(repository)
 }

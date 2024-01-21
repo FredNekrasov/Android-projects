@@ -1,4 +1,4 @@
-package com.fred_projects.education.rest_api.math.model
+package com.fred_projects.education.rest_api.math.model.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

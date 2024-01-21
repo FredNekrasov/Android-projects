@@ -1,6 +1,7 @@
-package com.fred_projects.education.jumping_rope.model
+package com.fred_projects.education.jumping_rope.model.repository
 
 import com.fred_projects.database.dao.IJRDao
+import com.fred_projects.education.jumping_rope.model.entity.JRReps
 import kotlinx.coroutines.flow.Flow
 
 class JRRepository(private val dao: IJRDao) : IJRRepository {

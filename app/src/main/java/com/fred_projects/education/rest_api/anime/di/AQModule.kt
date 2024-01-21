@@ -17,13 +17,10 @@ import javax.inject.Singleton
 object AQModule {
     @Provides
     @Singleton
-    fun provideAQService(): IAQService {
-        return Retrofit.Builder().baseUrl(IAQService.BASE_URL).
-        addConverterFactory(GsonConverterFactory.create()).build().create(IAQService::class.java)
-    }
+    fun provideAQService(): IAQService = Retrofit.Builder().baseUrl(IAQService.BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build().create(IAQService::class.java)
     @Provides
     @Singleton
-    fun provideAQRepository(api: IAQService, db: MainDB): IAQRepository {
-        return AQRepository(api, db.aqDao)
-    }
+    fun provideAQRepository(api: IAQService, db: MainDB): IAQRepository = AQRepository(api, db.aqDao)
 }

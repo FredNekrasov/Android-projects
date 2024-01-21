@@ -1,9 +1,7 @@
-package com.fred_projects.education.rest_api.astronomy.model
+package com.fred_projects.education.rest_api.astronomy.model.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverters
-import com.fred_projects.education.rest_api.astronomy.model.service.Converters
 import com.fred_projects.education.rest_api.astronomy.model.service.Host
 import com.fred_projects.education.rest_api.astronomy.model.service.StarInfo
 
@@ -18,14 +16,5 @@ data class StarInfoEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
 ){
-    fun toStarInfo(): StarInfo {
-        return StarInfo(
-            dec,
-            host,
-            name,
-            references,
-            ra,
-            radius
-        )
-    }
+    fun toStarInfo() = StarInfo(dec, host, name, references, ra, radius)
 }

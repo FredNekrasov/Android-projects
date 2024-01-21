@@ -18,18 +18,13 @@ import javax.inject.Singleton
 object MathModule {
     @Provides
     @Singleton
-    fun provideMathService(): IMathService {
-        return Retrofit.Builder().baseUrl(IMathService.BASE_URL).
-        addConverterFactory(GsonConverterFactory.create()).build().create(IMathService::class.java)
-    }
+    fun provideMathService(): IMathService = Retrofit.Builder().baseUrl(IMathService.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build().create(IMathService::class.java)
     @Provides
     @Singleton
-    fun provideMSRepository(api: IMathService, db: MainDB): IMSRepository {
-        return MSRepository(api, db.mathDao)
-    }
+    fun provideMSRepository(api: IMathService, db: MainDB): IMSRepository = MSRepository(api, db.mathDao)
     @Provides
     @Singleton
-    fun provideGetMathInfo(msRepository: IMSRepository): GetSolutionFMS {
-        return GetSolutionFMS(msRepository)
-    }
+    fun provideGetMathInfo(msRepository: IMSRepository) = GetSolutionFMS(msRepository)
 }

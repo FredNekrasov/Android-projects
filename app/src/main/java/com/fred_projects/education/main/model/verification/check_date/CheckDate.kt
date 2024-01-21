@@ -10,9 +10,7 @@ class CheckDate @Inject constructor() : ICheckDate {
         return try {
             if ((inf != null) && (inf.contains(Regex("""^\d\d\.\d\d\.\d\d\d\d$""")))) {
                 val date = LocalDate.parse(inf, DateTimeFormatter.ofPattern("dd.MM.yyyy"))
-                if ((date < LocalDate.now()) && (date > LocalDate.of(2023, 9, 1))) {
-                    inf
-                } else null
+                if ((date < LocalDate.now()) && (date > LocalDate.of(2023, 9, 1))) inf else null
             } else null
         } catch (e: DateTimeParseException) {
             null

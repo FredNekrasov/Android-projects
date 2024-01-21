@@ -31,7 +31,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
-import com.fred_projects.education.jumping_rope.JRViewModel
+import com.fred_projects.education.jumping_rope.view_model.JRViewModel
 import com.fred_projects.R
 import com.fred_projects.ui.FredButton
 import com.fred_projects.ui.FredIconButton
@@ -96,8 +96,7 @@ fun JRList(viewModel: JRViewModel, context: ComponentActivity) {
                             Row(Modifier.fillMaxWidth(), Arrangement.SpaceBetween, Alignment.CenterVertically) {
                                 FredIconButton({ isShowDialog = false }, Modifier.padding(4.dp).border(2.dp, MaterialTheme.colors.onBackground, MaterialTheme.shapes.small), image = Icons.Default.ArrowBack, description = stringResource(R.string.go_back))
                                 FredIconButton({
-                                    inf = if (jRRecord.value != null) viewModel.addEditRecord(jRRecord.value?.id, countOfJumps.toIntOrNull(), date)
-                                    else viewModel.addEditRecord(count = countOfJumps.toIntOrNull())
+                                    inf = if (jRRecord.value != null) viewModel.addEditRecord(jRRecord.value?.id, countOfJumps.toIntOrNull(), date) else viewModel.addEditRecord(count = countOfJumps.toIntOrNull())
                                     if (inf != 0) scope.launch { scaffoldState.snackbarHostState.showSnackbar(errors) }
                                     isShowDialog = false
                                 }, Modifier.padding(4.dp).border(2.dp, MaterialTheme.colors.onBackground, MaterialTheme.shapes.small), image = Icons.Default.Done, description = stringResource(R.string.update))

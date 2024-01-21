@@ -1,4 +1,4 @@
-package com.fred_projects.education.main.use_case
+package com.fred_projects.education.main.use_case.sorting
 
 sealed class SortingPW(val sortType: SortType) {
     class PW(sortType: SortType) : SortingPW(sortType)

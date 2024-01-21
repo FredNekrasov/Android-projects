@@ -1,5 +1,6 @@
-package com.fred_projects.education.jumping_rope.model
+package com.fred_projects.education.jumping_rope.model.repository
 
+import com.fred_projects.education.jumping_rope.model.entity.JRReps
 import kotlinx.coroutines.flow.Flow
 
 interface IJRRepository {

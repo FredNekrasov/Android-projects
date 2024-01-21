@@ -23,7 +23,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.fred_projects.R
 import com.fred_projects.education.rest_api.Resource
-import com.fred_projects.education.rest_api.anime.AnimeQuotesVM
+import com.fred_projects.education.rest_api.anime.view_model.AnimeQuotesVM
 import com.fred_projects.ui.FredButton
 import com.fred_projects.ui.FredTextField
 

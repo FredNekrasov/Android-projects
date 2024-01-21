@@ -18,7 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.fred_projects.R
-import com.fred_projects.education.jumping_rope.model.JRReps
+import com.fred_projects.education.jumping_rope.model.entity.JRReps
 import com.fred_projects.ui.FredCard
 import com.fred_projects.ui.FredIconButton
 

@@ -26,6 +26,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -83,28 +84,27 @@ fun CUItem(navController: NavController, onClick: () -> Uri, viewModel: AddEditV
                 }, Icons.Default.Done, stringResource(R.string.add)
             )
         }, scaffoldState = scaffoldState) { padding ->
-        Column(Modifier.fillMaxSize().padding(padding), Arrangement.Center, Alignment.CenterHorizontally) {
-            Text("${stringResource(R.string.add)}/${stringResource(R.string.update)}", style = MaterialTheme.typography.h4)
-            Spacer(Modifier.height(32.dp))
-            LazyColumn {
-                item {
-                    Column(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.CenterHorizontally) {
-                        FredTextField(pwName, { pwName = it }, R.string.enterPW)
-                        Spacer(Modifier.height(8.dp))
-                        FredTextField(student, { student = it }, R.string.enterStudent)
-                        Spacer(Modifier.height(8.dp))
-                        FredTextField(variant, { if (((it.toIntOrNull() != null) && (it.toInt() > 0)) || (it == "")) variant = it }, R.string.enterVariant)
-                        Spacer(Modifier.height(8.dp))
-                        FredTextField(lvl, { if (((it.toIntOrNull() != null) && (it.toInt() > 0)) || (it == "")) lvl = it }, R.string.enterLVL)
-                        Spacer(Modifier.height(8.dp))
-                        FredTextField(date, { date = it }, R.string.enterDate)
-                        Spacer(Modifier.height(8.dp))
-                        FredTextField(mark, { if (((it.toIntOrNull() != null) && (it.toInt() > 0)) || (it == "")) mark = it }, R.string.enterMark)
-                        Spacer(Modifier.height(8.dp))
-                        FredButton({ photo = onClick.invoke().toString() }, stringResource(R.string.take_picture))
-                        FredButton({ navController.navigateUp() }, stringResource(R.string.go_back))
-                        Image(rememberAsyncImagePainter(photo.toUri()), stringResource(R.string.photo), Modifier.height(200.dp))
-                    }
+        LazyColumn(Modifier.fillMaxSize().padding(padding)) {
+            item {
+                Column(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.CenterHorizontally) {
+                    Spacer(Modifier.height(32.dp))
+                    Text("${stringResource(R.string.add)}/${stringResource(R.string.update)}", textAlign = TextAlign.Center, style = MaterialTheme.typography.h5)
+                    Spacer(Modifier.height(32.dp))
+                    FredTextField(pwName, { pwName = it }, R.string.enterPW)
+                    Spacer(Modifier.height(8.dp))
+                    FredTextField(student, { student = it }, R.string.enterStudent)
+                    Spacer(Modifier.height(8.dp))
+                    FredTextField(variant, { if (((it.toIntOrNull() != null) && (it.toInt() > 0)) || (it == "")) variant = it }, R.string.enterVariant)
+                    Spacer(Modifier.height(8.dp))
+                    FredTextField(lvl, { if (((it.toIntOrNull() != null) && (it.toInt() > 0)) || (it == "")) lvl = it }, R.string.enterLVL)
+                    Spacer(Modifier.height(8.dp))
+                    FredTextField(date, { date = it }, R.string.enterDate)
+                    Spacer(Modifier.height(8.dp))
+                    FredTextField(mark, { if (((it.toIntOrNull() != null) && (it.toInt() > 0)) || (it == "")) mark = it }, R.string.enterMark)
+                    Spacer(Modifier.height(8.dp))
+                    Image(rememberAsyncImagePainter(photo.toUri()), stringResource(R.string.photo), Modifier.height(200.dp))
+                    FredButton({ photo = onClick.invoke().toString() }, stringResource(R.string.take_picture))
+                    FredButton({ navController.navigateUp() }, stringResource(R.string.go_back))
                 }
             }
         }

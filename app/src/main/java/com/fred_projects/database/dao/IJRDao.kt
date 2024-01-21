@@ -1,7 +1,7 @@
 package com.fred_projects.database.dao
 
 import androidx.room.*
-import com.fred_projects.education.jumping_rope.model.JRReps
+import com.fred_projects.education.jumping_rope.model.entity.JRReps
 import kotlinx.coroutines.flow.Flow
 
 @Dao

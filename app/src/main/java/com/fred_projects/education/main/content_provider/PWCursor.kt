@@ -1,15 +1,12 @@
 package com.fred_projects.education.main.content_provider
 
 import android.database.AbstractCursor
-import com.fred_projects.R
-import com.fred_projects.education.main.model.PracticalWork
+import com.fred_projects.education.main.model.entity.PracticalWork
 
 class PWCursor(private val pwList: List<PracticalWork>) : AbstractCursor() {
     override fun getCount(): Int = pwList.size
 
-    override fun getColumnNames(): Array<String> {
-        return arrayOf("id", "Practical Work", "Student", "Variant", "Level", "Date", "Mark")
-    }
+    override fun getColumnNames(): Array<String> = arrayOf("id", "Practical Work", "Student", "Variant", "Level", "Date", "Mark")
 
     override fun getString(p0: Int): String {
         return when(p0) {

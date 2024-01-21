@@ -1,9 +1,9 @@
 package com.fred_projects.education.main.use_case.crud
 
-import com.fred_projects.education.main.model.IMainRepository
-import com.fred_projects.education.main.model.PracticalWork
-import com.fred_projects.education.main.use_case.SortType
-import com.fred_projects.education.main.use_case.SortingPW
+import com.fred_projects.education.main.model.repository.IMainRepository
+import com.fred_projects.education.main.model.entity.PracticalWork
+import com.fred_projects.education.main.use_case.sorting.SortType
+import com.fred_projects.education.main.use_case.sorting.SortingPW
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

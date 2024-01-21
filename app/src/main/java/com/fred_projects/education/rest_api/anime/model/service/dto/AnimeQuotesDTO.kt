@@ -1,6 +1,6 @@
 package com.fred_projects.education.rest_api.anime.model.service.dto
 
-import com.fred_projects.education.rest_api.anime.model.AnimeQuotesEntity
+import com.fred_projects.education.rest_api.anime.model.entity.AnimeQuotesEntity
 
 data class AnimeQuotesDTO(
     val anime: String,

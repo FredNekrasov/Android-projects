@@ -14,8 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.fred_projects.R
-import com.fred_projects.education.main.use_case.SortType
-import com.fred_projects.education.main.use_case.SortingPW
+import com.fred_projects.education.main.use_case.sorting.SortType
+import com.fred_projects.education.main.use_case.sorting.SortingPW
 import com.fred_projects.ui.FredRadioButton
 
 @Composable

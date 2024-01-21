@@ -2,7 +2,6 @@ package com.fred_projects.education.rest_api.math.model.repository
 
 import com.fred_projects.database.dao.IMathDao
 import com.fred_projects.education.rest_api.Resource
-import com.fred_projects.education.rest_api.math.model.MathEntity
 import com.fred_projects.education.rest_api.math.model.service.IMathService
 import com.fred_projects.education.rest_api.math.model.service.MineMath
 import kotlinx.coroutines.CoroutineScope
@@ -23,14 +22,11 @@ class MSRepository(private val api: IMathService, private val mathDao: IMathDao)
             try {
                 val res = api.getResult(expression).execute()
                 if (res.isSuccessful) {
-                    val body = res.body()
-                    if (body == null) msf.emit((Resource.SOMETHING_WRONG to result?.toMineMath()))
-                    else {
-                        val entity = MathEntity(expression, body.result)
-                        mathDao.deleteMathInfo(expression)
-                        mathDao.insertMathInfo(entity)
-                        msf.emit(Resource.SUCCESS to entity.toMineMath())
-                    }
+                    val body = res.body() ?: return@launch msf.emit((Resource.SOMETHING_WRONG to result?.toMineMath()))
+                    val entity = body.toMathEntity()
+                    mathDao.deleteMathInfo(expression)
+                    mathDao.insertMathInfo(entity)
+                    msf.emit(Resource.SUCCESS to body.toMineMath())
                 } else msf.emit((Resource.SOMETHING_WRONG to result?.toMineMath()))
             } catch (e: Exception) {
                 msf.emit((Resource.SOMETHING_WRONG to result?.toMineMath()))

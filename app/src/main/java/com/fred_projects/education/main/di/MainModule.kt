@@ -1,8 +1,8 @@
 package com.fred_projects.education.main.di
 
 import com.fred_projects.database.MainDB
-import com.fred_projects.education.main.model.IMainRepository
-import com.fred_projects.education.main.model.MainRepository
+import com.fred_projects.education.main.model.repository.IMainRepository
+import com.fred_projects.education.main.model.repository.MainRepository
 import com.fred_projects.education.main.model.verification.check_date.ICheckDate
 import com.fred_projects.education.main.model.verification.check_image.ICheckImage
 import com.fred_projects.education.main.model.verification.check_lvl.ICheckLVL
@@ -26,19 +26,13 @@ import javax.inject.Singleton
 object MainModule {
     @Provides
     @Singleton
-    fun provideRepository(db: MainDB): IMainRepository {
-        return MainRepository(db.mainDao)
-    }
+    fun provideRepository(db: MainDB): IMainRepository = MainRepository(db.mainDao)
     @Provides
     @Singleton
-    fun provideGetData(repository: IMainRepository): GetPWData {
-        return GetPWData(repository)
-    }
+    fun provideGetData(repository: IMainRepository) = GetPWData(repository)
     @Provides
     @Singleton
-    fun provideDeleteData(repository: IMainRepository): DeletePWData {
-        return DeletePWData(repository)
-    }
+    fun provideDeleteData(repository: IMainRepository) = DeletePWData(repository)
     @Provides
     @Singleton
     fun provideAddData(
@@ -49,17 +43,17 @@ object MainModule {
         checkLVL: ICheckLVL,
         checkDate: ICheckDate,
         checkMark: ICheckMark,
-        checkImage: ICheckImage): AddPWData {
-        return AddPWData(repository, checkPW, checkStudent, checkVariant, checkLVL, checkDate, checkMark, checkImage)
-    }
+        checkImage: ICheckImage
+    ) = AddPWData(repository, checkPW, checkStudent, checkVariant, checkLVL, checkDate, checkMark, checkImage)
     @Provides
     @Singleton
-    fun provideGetPW(repository: IMainRepository): GetPWRecord {
-        return GetPWRecord(repository)
-    }
+    fun provideGetPW(repository: IMainRepository) = GetPWRecord(repository)
     @Provides
     @Singleton
-    fun provideDatabaseUseCases(getData: GetPWData, deleteData: DeletePWData, addData: AddPWData, getPW: GetPWRecord): MainUseCases {
-        return MainUseCases(getData, deleteData, addData, getPW)
-    }
+    fun provideDatabaseUseCases(
+        getData: GetPWData,
+        deleteData: DeletePWData,
+        addData: AddPWData,
+        getPW: GetPWRecord
+    ) = MainUseCases(getData, deleteData, addData, getPW)
 }

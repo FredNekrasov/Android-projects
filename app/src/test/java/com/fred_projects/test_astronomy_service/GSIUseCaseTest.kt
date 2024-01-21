@@ -1,7 +1,7 @@
 package com.fred_projects.test_astronomy_service
 
 import com.fred_projects.education.rest_api.Resource
-import com.fred_projects.education.rest_api.astronomy.model.StarInfoEntity
+import com.fred_projects.education.rest_api.astronomy.model.entity.StarInfoEntity
 import com.fred_projects.education.rest_api.astronomy.model.repository.IStarInfoRepository
 import com.fred_projects.education.rest_api.astronomy.model.service.Host
 import com.fred_projects.education.rest_api.astronomy.model.service.StarInfo

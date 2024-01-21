@@ -28,13 +28,13 @@ class StarInfoRepository(
                 dao.deleteStarInfo(remoteStarListInfo.map { it.key })
                 dao.insertStarInfo(remoteStarListInfo.map { it.value.toStarInfoEntity(dec, ra, radius, it.key) })
             } catch (e: HttpException) {
-                return@launch msf.emit((Resource.NO_INTERNET to starListInfo))
+                msf.emit((Resource.NO_INTERNET to starListInfo))
             } catch (e: IOException) {
-                return@launch msf.emit((Resource.SOMETHING_WRONG to starListInfo))
+                msf.emit((Resource.SOMETHING_WRONG to starListInfo))
             } catch (e: Exception) {
-                return@launch msf.emit((Resource.SOMETHING_WRONG to starListInfo))
+                msf.emit((Resource.SOMETHING_WRONG to starListInfo))
             } catch (e: JsonSyntaxException) {
-                return@launch msf.emit((Resource.SOMETHING_WRONG to starListInfo))
+                msf.emit((Resource.SOMETHING_WRONG to starListInfo))
             }
             val newStarListInfo = dao.getStarListInfo(ra, dec, radius).map { it.toStarInfo() }
             msf.emit((Resource.SUCCESS to newStarListInfo))

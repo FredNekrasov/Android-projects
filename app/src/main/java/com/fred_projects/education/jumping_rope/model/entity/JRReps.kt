@@ -1,4 +1,4 @@
-package com.fred_projects.education.jumping_rope.model
+package com.fred_projects.education.jumping_rope.model.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

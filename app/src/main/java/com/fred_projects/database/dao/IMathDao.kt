@@ -1,7 +1,7 @@
 package com.fred_projects.database.dao
 
 import androidx.room.*
-import com.fred_projects.education.rest_api.math.model.MathEntity
+import com.fred_projects.education.rest_api.math.model.entity.MathEntity
 
 @Dao
 interface IMathDao {

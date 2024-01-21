@@ -9,6 +9,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import com.fred_projects.education.jumping_rope.view.JRList
+import com.fred_projects.education.jumping_rope.view_model.JRViewModel
 import com.fred_projects.ui.theme.FredProjectsTheme
 import dagger.hilt.android.AndroidEntryPoint
 

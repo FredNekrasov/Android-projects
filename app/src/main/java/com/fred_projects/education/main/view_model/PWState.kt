@@ -1,8 +1,8 @@
 package com.fred_projects.education.main.view_model
 
-import com.fred_projects.education.main.model.PracticalWork
-import com.fred_projects.education.main.use_case.SortType
-import com.fred_projects.education.main.use_case.SortingPW
+import com.fred_projects.education.main.model.entity.PracticalWork
+import com.fred_projects.education.main.use_case.sorting.SortType
+import com.fred_projects.education.main.use_case.sorting.SortingPW
 
 data class PWState(
     val pws: List<PracticalWork> = emptyList(),

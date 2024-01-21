@@ -1,6 +1,6 @@
 package com.fred_projects.education.rest_api.math.model.service.dto
 
-import com.fred_projects.education.rest_api.math.model.MathEntity
+import com.fred_projects.education.rest_api.math.model.entity.MathEntity
 import com.fred_projects.education.rest_api.math.model.service.MineMath
 
 data class MathDTO(

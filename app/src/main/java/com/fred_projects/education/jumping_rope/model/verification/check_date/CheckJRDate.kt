@@ -7,13 +7,10 @@ import javax.inject.Inject
 
 class CheckJRDate @Inject constructor() : ICheckJRDate {
     override fun check(inf: String): String? {
-        return try {
-            if (inf.contains(Regex("""^\d{4}.\d{2}.\d{2}$"""))) {
-                val date = LocalDate.parse(inf, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-                if (date <= LocalDate.now()) inf else null
-            } else null
-        } catch (e: DateTimeParseException) {
-            null
-        }
+        val regex = Regex("""^\d{4}-\d{2}-\d{2}$""")
+        return if (regex.matches(inf)) {
+            val date = LocalDate.parse(inf, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+            if (date <= LocalDate.now()) inf else null
+        } else null
     }
 }

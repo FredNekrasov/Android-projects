@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import coil.compose.rememberAsyncImagePainter
 import com.fred_projects.R
-import com.fred_projects.education.main.model.PracticalWork
+import com.fred_projects.education.main.model.entity.PracticalWork
 import com.fred_projects.ui.FredCard
 import com.fred_projects.ui.FredIconButton
 

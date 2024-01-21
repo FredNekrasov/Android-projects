@@ -2,7 +2,6 @@ package com.fred_projects.education.rest_api.anime.model.repository
 
 import com.fred_projects.database.dao.IAQDao
 import com.fred_projects.education.rest_api.Resource
-import com.fred_projects.education.rest_api.anime.model.AnimeQuotesEntity
 import com.fred_projects.education.rest_api.anime.model.service.AnimeQuotes
 import com.fred_projects.education.rest_api.anime.model.service.IAQService
 import kotlinx.coroutines.CoroutineScope

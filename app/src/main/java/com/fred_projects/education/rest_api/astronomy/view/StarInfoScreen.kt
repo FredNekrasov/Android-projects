@@ -25,7 +25,7 @@ import androidx.navigation.NavController
 import com.fred_projects.MainActivity
 import com.fred_projects.R
 import com.fred_projects.education.rest_api.Resource
-import com.fred_projects.education.rest_api.astronomy.StarInfoVM
+import com.fred_projects.education.rest_api.astronomy.view_model.StarInfoVM
 import com.fred_projects.ui.FredButton
 import com.fred_projects.ui.FredTextField
 

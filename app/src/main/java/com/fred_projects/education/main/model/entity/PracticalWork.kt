@@ -1,4 +1,4 @@
-package com.fred_projects.education.main.model
+package com.fred_projects.education.main.model.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -1,8 +1,8 @@
-package com.fred_projects.education.jumping_rope
+package com.fred_projects.education.jumping_rope.view_model
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.fred_projects.education.jumping_rope.model.JRReps
+import com.fred_projects.education.jumping_rope.model.entity.JRReps
 import com.fred_projects.education.jumping_rope.use_case.JRUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job

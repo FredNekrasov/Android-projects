@@ -1,7 +1,7 @@
 package com.fred_projects.database.dao
 
 import androidx.room.*
-import com.fred_projects.education.rest_api.anime.model.AnimeQuotesEntity
+import com.fred_projects.education.rest_api.anime.model.entity.AnimeQuotesEntity
 
 @Dao
 interface IAQDao {

@@ -1,8 +1,7 @@
 package com.fred_projects.database.dao
 
 import androidx.room.*
-import com.fred_projects.education.rest_api.astronomy.model.StarInfoEntity
-import com.fred_projects.education.rest_api.astronomy.model.service.Converters
+import com.fred_projects.education.rest_api.astronomy.model.entity.StarInfoEntity
 
 @Dao
 interface IAstronomyDao {

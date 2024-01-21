@@ -16,10 +16,8 @@ import javax.inject.Singleton
 object AppModule {
     @Provides
     @Singleton
-    fun provideMainDB(app: Application): MainDB {
-        return Room.databaseBuilder(app, MainDB::class.java, MainDB.MAIN_DB)
-            .allowMainThreadQueries()
-            .addTypeConverter(Converters(GsonParser(Gson())))
-            .build()
-    }
+    fun provideMainDB(app: Application): MainDB = Room.databaseBuilder(app, MainDB::class.java, MainDB.MAIN_DB)
+        .allowMainThreadQueries()
+        .addTypeConverter(Converters(GsonParser(Gson())))
+        .build()
 }

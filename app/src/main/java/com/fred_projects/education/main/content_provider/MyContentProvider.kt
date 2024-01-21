@@ -5,7 +5,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 import androidx.core.net.toUri
-import com.fred_projects.education.main.model.PracticalWork
+import com.fred_projects.education.main.model.entity.PracticalWork
 import com.fred_projects.education.main.use_case.MainUseCases
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
@@ -60,9 +60,7 @@ class MyContentProvider : ContentProvider() {
         return countOfPW - pwState.value.size
     }
 
-    override fun getType(uri: Uri): String {
-        return "fred_nekrasov.object/fred_nekrasov.practicalWorks"
-    }
+    override fun getType(uri: Uri): String = "fred_nekrasov.object/fred_nekrasov.practicalWorks"
 
     override fun insert(uri: Uri, values: ContentValues?): Uri? {
         return if (values == null) null else {
@@ -71,17 +69,18 @@ class MyContentProvider : ContentProvider() {
         }
     }
 
-    override fun query(uri: Uri, projection: Array<String>?, selection: String?, selectionArgs: Array<String>?, sortOrder: String?): Cursor? {
-        return if ((selection != null) && (selectionArgs != null) && (sortOrder != null)) null
-        else PWCursor(pwState.value.toList())
-    }
+    override fun query(
+        uri: Uri,
+        projection: Array<String>?,
+        selection: String?,
+        selectionArgs: Array<String>?,
+        sortOrder: String?
+    ): Cursor? = if ((selection != null) && (selectionArgs != null) && (sortOrder != null)) null else PWCursor(pwState.value.toList())
 
     override fun update(uri: Uri, values: ContentValues?, selection: String?, selectionArgs: Array<String>?): Int {
         if (values != null) {
             val index = values["id"] as Int?
-            if ((index != null) && (index in pwState.value.indices)) {
-                setData(values)
-            }
+            if ((index != null) && (index in pwState.value.indices)) setData(values)
         }
         return 0
     }
