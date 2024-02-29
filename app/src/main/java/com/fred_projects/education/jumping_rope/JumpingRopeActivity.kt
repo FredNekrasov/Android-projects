@@ -14,7 +14,7 @@ import com.fred_projects.ui.theme.FredProjectsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SensorAndAnimation : ComponentActivity() {
+class JumpingRopeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewModel: JRViewModel by viewModels()

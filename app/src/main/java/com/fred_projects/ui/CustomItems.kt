@@ -59,7 +59,7 @@ fun FredDrawerHeader() {
 fun FredDrawerBody(context: Context, navController: NavController) {
     Column(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.CenterHorizontally) {
         FredButton({ context.startActivity(Intent(context, TestService::class.java)) }, stringResource(R.string.activity_test_service))
-        FredButton({ context.startActivity(Intent(context, SecondLW::class.java)) }, stringResource(R.string.activity_second_lw))
+        FredButton({ context.startActivity(Intent(context, Sensors::class.java)) }, stringResource(R.string.activity_second_lw))
         FredButton({ navController.navigate(ScreensRoute.SolvingTheInequality.route) }, stringResource(R.string.inequality_task))
         FredButton({ navController.navigate(ScreensRoute.MathRestAPI.route) }, stringResource(R.string.math_service))
         FredButton({ navController.navigate(ScreensRoute.AnimeRestAPI.route) }, stringResource(R.string.anime_quotes))

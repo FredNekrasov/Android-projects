@@ -1,37 +1,24 @@
 package com.fred_projects.education
 
 import android.content.Intent
-import android.hardware.Sensor
-import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
-import android.hardware.SensorManager
+import android.hardware.*
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.ComponentActivity
+import androidx.activity.*
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.lifecycleScope
 import com.fred_projects.R
 import com.fred_projects.education.jumping_rope.view_model.JRViewModel
-import com.fred_projects.education.jumping_rope.SensorAndAnimation
+import com.fred_projects.education.jumping_rope.JumpingRopeActivity
 import com.fred_projects.education.jumping_rope.view.StickMan
 import com.fred_projects.ui.FredButton
 import com.fred_projects.ui.theme.FredProjectsTheme
@@ -41,7 +28,7 @@ import kotlinx.coroutines.launch
 import kotlin.math.sqrt
 
 @AndroidEntryPoint
-class SecondLW : ComponentActivity() {
+class Sensors : ComponentActivity() {
     private val manager by lazy { getSystemService(SENSOR_SERVICE) as SensorManager }
     private val sensor by lazy { manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) }
     val xFlow = MutableStateFlow(0f)
@@ -100,7 +87,7 @@ class SecondLW : ComponentActivity() {
                         Text("${stringResource(R.string.count)}: $res")
                         FredButton({
                             viewModel.addEditRecord(count = res)
-                            startActivity(Intent(this@SecondLW, SensorAndAnimation::class.java))
+                            startActivity(Intent(this@Sensors, JumpingRopeActivity::class.java))
                         }, stringResource(R.string.save))
                         FredButton({ showJump = true }, stringResource(R.string.jump))
                         FredButton(click = { finish() }, inf = stringResource(R.string.go_back))

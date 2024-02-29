@@ -31,7 +31,7 @@
             android:exported="true"/>
 
         <activity
-            android:name=".education.jumping_rope.SensorAndAnimation"
+            android:name=".education.jumping_rope.JumpingRopeActivity"
             android:exported="false"
             android:label="@string/activity_sensor_and_animation"
             android:theme="@style/Theme.FredProjects" />
@@ -58,7 +58,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".education.SecondLW"
+            android:name=".education.Sensors"
             android:exported="false"
             android:label="@string/activity_second_lw"
             android:theme="@style/Theme.FredProjects" />
