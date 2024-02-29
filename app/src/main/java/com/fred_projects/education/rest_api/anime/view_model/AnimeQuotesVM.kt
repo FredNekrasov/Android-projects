@@ -1,14 +1,11 @@
 package com.fred_projects.education.rest_api.anime.view_model
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.fred_projects.education.rest_api.Resource
 import com.fred_projects.education.rest_api.anime.model.repository.IAQRepository
 import com.fred_projects.education.rest_api.anime.model.service.AnimeQuotes
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -17,13 +14,12 @@ class AnimeQuotesVM @Inject constructor(private val repository: IAQRepository) :
     private val resultMSF = MutableStateFlow<Pair<Resource, List<AnimeQuotes>?>>(Resource.NONE to null)
     val resultSF = resultMSF.asStateFlow()
     fun onSearch(anime: String) {
-        if (anime.isEmpty() || anime.isBlank()) {
-            resultMSF.value = (Resource.ERROR to null)
-            return
-        }
         viewModelScope.launch {
-            repository.getAQ(anime).collectLatest {
-                resultMSF.emit(it)
+            if (anime.isEmpty() || anime.isBlank()) resultMSF.emit(Resource.ERROR to null)
+            else {
+                repository.getAQ(anime).collectLatest {
+                    resultMSF.emit(it)
+                }
             }
         }
     }
