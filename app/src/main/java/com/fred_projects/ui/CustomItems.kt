@@ -51,11 +51,8 @@ fun FredFloatingActionButton(onClick: () -> Unit, image: ImageVector, descriptio
 }
 @Composable
 fun FredDrawerHeader() {
-    Column(
-        Modifier
-            .fillMaxWidth()
-            .height(100.dp), Arrangement.Center, Alignment.CenterHorizontally) {
-        Text(stringResource(R.string.drawer_header), color = MaterialTheme.colors.error, fontFamily = FontFamily.Cursive, fontSize = 40.sp)
+    Column(Modifier.fillMaxWidth().height(100.dp), Arrangement.Center, Alignment.CenterHorizontally) {
+        Text(stringResource(R.string.drawer_header), color = MaterialTheme.colors.error, fontFamily = FontFamily.Serif, fontSize = 40.sp)
     }
 }
 @Composable
@@ -92,16 +89,16 @@ fun FredCard(
     cutCornerSize: Dp = 30.dp
 ) {
     Canvas(modifier){
-            val clipPath = Path().apply {
-                lineTo(size.width - cutCornerSize.toPx(), 0f)
-                lineTo(size.width, cutCornerSize.toPx())
-                lineTo(size.width, size.height)
-                lineTo(0f, size.height)
-                close()
-            }
-            clipPath(clipPath){
-                drawRoundRect(color = mainColor, size = size, cornerRadius = CornerRadius(cornerRadius.toPx()))
-                drawRoundRect(color = secondaryColor, topLeft = Offset(size.width - cutCornerSize.toPx(), -100f), size = Size(cutCornerSize.toPx() + 100f, cutCornerSize.toPx() + 100f), cornerRadius = CornerRadius(cornerRadius.toPx()))
-            }
+        val clipPath = Path().apply {
+            lineTo(size.width - cutCornerSize.toPx(), 0f)
+            lineTo(size.width, cutCornerSize.toPx())
+            lineTo(size.width, size.height)
+            lineTo(0f, size.height)
+            close()
         }
+        clipPath(clipPath){
+            drawRoundRect(color = mainColor, size = size, cornerRadius = CornerRadius(cornerRadius.toPx()))
+            drawRoundRect(color = secondaryColor, topLeft = Offset(size.width - cutCornerSize.toPx(), -100f), size = Size(cutCornerSize.toPx() + 100f, cutCornerSize.toPx() + 100f), cornerRadius = CornerRadius(cornerRadius.toPx()))
+        }
+    }
 }
