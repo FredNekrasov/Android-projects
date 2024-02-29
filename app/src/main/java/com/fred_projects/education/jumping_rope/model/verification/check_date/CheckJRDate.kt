@@ -2,7 +2,6 @@ package com.fred_projects.education.jumping_rope.model.verification.check_date
 
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.time.format.DateTimeParseException
 import javax.inject.Inject
 
 class CheckJRDate @Inject constructor() : ICheckJRDate {
