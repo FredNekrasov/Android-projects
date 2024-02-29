@@ -4,7 +4,7 @@ import com.fred_projects.education.rest_api.astronomy.model.service.dto.StarInfo
 import retrofit2.http.*
 
 interface IAstronomyService {
-    @GET("/catalog/")
+    @GET("/sne/catalog/")
     suspend fun getMoreInfo(
         @Query("ra") ra: String,
         @Query("dec") dec: String,

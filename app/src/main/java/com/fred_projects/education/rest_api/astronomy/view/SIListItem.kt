@@ -16,7 +16,7 @@ import com.fred_projects.ui.FredCard
 @Composable
 fun SIListItem(info: StarInfo, modifier: Modifier) {
     Box(modifier) {
-        FredCard(Modifier.matchParentSize().border(width = 4.dp, color = MaterialTheme.colors.onBackground, shape = MaterialTheme.shapes.medium), MaterialTheme.colors.background, MaterialTheme.colors.onBackground)
+        FredCard(Modifier.matchParentSize(), MaterialTheme.colors.primaryVariant, MaterialTheme.colors.onBackground)
         Column(Modifier.fillMaxSize().padding(16.dp).padding(end = 32.dp)) {
             Text(info.name, Modifier.testTag(MainActivity.TEXT_NAME), style = MaterialTheme.typography.h6, color = MaterialTheme.colors.onBackground, overflow = TextOverflow.Ellipsis)
             Spacer(modifier = Modifier.height(8.dp))
