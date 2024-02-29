@@ -1,41 +1,21 @@
 package com.fred_projects.education.jumping_rope.view
 
 import androidx.activity.ComponentActivity
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.*
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Done
-import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.rememberScaffoldState
-import androidx.compose.runtime.Composable
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.*
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.*
 import androidx.compose.ui.window.Dialog
-import com.fred_projects.education.jumping_rope.view_model.JRViewModel
 import com.fred_projects.R
-import com.fred_projects.ui.FredButton
-import com.fred_projects.ui.FredIconButton
-import com.fred_projects.ui.FredTextField
+import com.fred_projects.education.jumping_rope.view_model.JRViewModel
+import com.fred_projects.ui.*
 import kotlinx.coroutines.launch
 
 @Composable
@@ -94,7 +74,7 @@ fun JRList(viewModel: JRViewModel, context: ComponentActivity) {
                             FredTextField(date, { date = it }, R.string.enterDate)
                             Spacer(Modifier.height(8.dp))
                             Row(Modifier.fillMaxWidth(), Arrangement.SpaceBetween, Alignment.CenterVertically) {
-                                FredIconButton({ isShowDialog = false }, Modifier.padding(4.dp).border(2.dp, MaterialTheme.colors.onBackground, MaterialTheme.shapes.small), image = Icons.Default.ArrowBack, description = stringResource(R.string.go_back))
+                                FredIconButton({ isShowDialog = false }, Modifier.padding(4.dp).border(2.dp, MaterialTheme.colors.onBackground, MaterialTheme.shapes.small), image = Icons.Default.ArrowBackIosNew, description = stringResource(R.string.go_back))
                                 FredIconButton({
                                     inf = if (jRRecord.value != null) viewModel.addEditRecord(jRRecord.value?.id, countOfJumps.toIntOrNull(), date) else viewModel.addEditRecord(count = countOfJumps.toIntOrNull())
                                     if (inf != 0) scope.launch { scaffoldState.snackbarHostState.showSnackbar(errors) }

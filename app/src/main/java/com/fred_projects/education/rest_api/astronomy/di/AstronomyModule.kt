@@ -1,12 +1,10 @@
 package com.fred_projects.education.rest_api.astronomy.di
 
 import com.fred_projects.database.MainDB
-import com.fred_projects.education.rest_api.astronomy.model.repository.IStarInfoRepository
-import com.fred_projects.education.rest_api.astronomy.model.repository.StarInfoRepository
+import com.fred_projects.education.rest_api.astronomy.model.repository.*
 import com.fred_projects.education.rest_api.astronomy.model.service.IAstronomyService
 import com.fred_projects.education.rest_api.astronomy.use_case.GetStarInfo
-import dagger.Module
-import dagger.Provides
+import dagger.*
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit

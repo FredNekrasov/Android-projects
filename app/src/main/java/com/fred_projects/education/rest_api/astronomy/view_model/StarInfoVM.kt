@@ -1,14 +1,11 @@
 package com.fred_projects.education.rest_api.astronomy.view_model
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.fred_projects.education.rest_api.Resource
 import com.fred_projects.education.rest_api.astronomy.model.service.StarInfo
 import com.fred_projects.education.rest_api.astronomy.use_case.GetStarInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

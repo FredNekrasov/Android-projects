@@ -1,13 +1,7 @@
 package com.fred_projects.database
 
-import androidx.room.Database
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import com.fred_projects.database.dao.IAQDao
-import com.fred_projects.database.dao.IAstronomyDao
-import com.fred_projects.database.dao.IJRDao
-import com.fred_projects.database.dao.IMainDao
-import com.fred_projects.database.dao.IMathDao
+import androidx.room.*
+import com.fred_projects.database.dao.*
 import com.fred_projects.education.jumping_rope.model.entity.JRReps
 import com.fred_projects.education.main.model.entity.PracticalWork
 import com.fred_projects.education.rest_api.anime.model.entity.AnimeQuotesEntity

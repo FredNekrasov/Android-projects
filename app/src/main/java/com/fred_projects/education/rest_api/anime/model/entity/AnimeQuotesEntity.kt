@@ -1,7 +1,6 @@
 package com.fred_projects.education.rest_api.anime.model.entity
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 import com.fred_projects.education.rest_api.anime.model.service.AnimeQuotes
 
 @Entity

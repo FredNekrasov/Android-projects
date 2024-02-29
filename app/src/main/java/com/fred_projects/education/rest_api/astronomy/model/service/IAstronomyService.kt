@@ -1,8 +1,7 @@
 package com.fred_projects.education.rest_api.astronomy.model.service
 
 import com.fred_projects.education.rest_api.astronomy.model.service.dto.StarInfoDTO
-import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface IAstronomyService {
     @GET("/catalog/")

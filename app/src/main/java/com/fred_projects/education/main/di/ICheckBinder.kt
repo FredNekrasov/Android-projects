@@ -7,8 +7,7 @@ import com.fred_projects.education.main.model.verification.check_mark.*
 import com.fred_projects.education.main.model.verification.check_pw.*
 import com.fred_projects.education.main.model.verification.check_student.*
 import com.fred_projects.education.main.model.verification.check_variant.*
-import dagger.Binds
-import dagger.Module
+import dagger.*
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton

@@ -10,14 +10,15 @@ import com.fred_projects.education.main.model.verification.check_pw.ICheckPW
 import com.fred_projects.education.main.model.verification.check_student.ICheckStudent
 import com.fred_projects.education.main.model.verification.check_variant.ICheckVariant
 
-class AddPWData(private val repository: IMainRepository,
-                private val checkPW: ICheckPW,
-                private val checkStudent: ICheckStudent,
-                private val checkVariant: ICheckVariant,
-                private val checkLVL: ICheckLVL,
-                private val checkDate: ICheckDate,
-                private val checkMark: ICheckMark,
-                private val checkImage: ICheckImage
+class AddPWData(
+    private val repository: IMainRepository,
+    private val checkPW: ICheckPW,
+    private val checkStudent: ICheckStudent,
+    private val checkVariant: ICheckVariant,
+    private val checkLVL: ICheckLVL,
+    private val checkDate: ICheckDate,
+    private val checkMark: ICheckMark,
+    private val checkImage: ICheckImage
 ) {
     private var int = 0
     suspend operator fun invoke(id: Int?, pwName: String, student: String, variant: Int?, lvl: Int?, date: String, mark: Int?, image: String): Int {

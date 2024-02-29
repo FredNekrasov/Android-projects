@@ -1,14 +1,11 @@
 package com.fred_projects.education.service_assignment
 
 import android.Manifest
-import android.app.PendingIntent
-import android.app.Service
+import android.app.*
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.IBinder
-import androidx.core.app.ActivityCompat
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
+import androidx.core.app.*
 import com.fred_projects.MainActivity
 import com.fred_projects.R
 import kotlinx.coroutines.*

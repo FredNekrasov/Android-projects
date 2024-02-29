@@ -2,13 +2,9 @@ package com.fred_projects.education.rest_api.anime.model.repository
 
 import com.fred_projects.database.dao.IAQDao
 import com.fred_projects.education.rest_api.Resource
-import com.fred_projects.education.rest_api.anime.model.service.AnimeQuotes
-import com.fred_projects.education.rest_api.anime.model.service.IAQService
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
+import com.fred_projects.education.rest_api.anime.model.service.*
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 import retrofit2.HttpException
 import java.io.IOException
 

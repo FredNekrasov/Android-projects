@@ -3,8 +3,7 @@ package com.fred_projects.education.main.view_model
 import androidx.lifecycle.*
 import com.fred_projects.education.main.model.entity.PracticalWork
 import com.fred_projects.education.main.use_case.MainUseCases
-import com.fred_projects.education.main.use_case.sorting.SortType
-import com.fred_projects.education.main.use_case.sorting.SortingPW
+import com.fred_projects.education.main.use_case.sorting.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.*

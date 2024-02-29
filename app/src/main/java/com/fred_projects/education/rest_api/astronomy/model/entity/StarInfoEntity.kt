@@ -1,9 +1,7 @@
 package com.fred_projects.education.rest_api.astronomy.model.entity
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import com.fred_projects.education.rest_api.astronomy.model.service.Host
-import com.fred_projects.education.rest_api.astronomy.model.service.StarInfo
+import androidx.room.*
+import com.fred_projects.education.rest_api.astronomy.model.service.*
 
 @Entity
 data class StarInfoEntity(

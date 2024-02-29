@@ -1,32 +1,22 @@
 package com.fred_projects.education.service_assignment
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.content.ComponentName
-import android.content.Intent
-import android.content.ServiceConnection
+import android.app.*
+import android.content.*
 import android.os.Bundle
 import android.os.IBinder
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.*
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.fred_projects.MainActivity
 import com.fred_projects.R
-import com.fred_projects.ui.FredButton
-import com.fred_projects.ui.FredTextField
-import com.fred_projects.ui.message
+import com.fred_projects.ui.*
 import com.fred_projects.ui.theme.FredProjectsTheme
 
 class TestService : ComponentActivity() {

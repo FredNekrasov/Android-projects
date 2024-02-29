@@ -1,7 +1,6 @@
 package com.fred_projects.education.solving_the_inequality.mvvm
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 

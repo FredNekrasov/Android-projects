@@ -2,10 +2,8 @@ package com.fred_projects.education.main.use_case.crud
 
 import com.fred_projects.education.main.model.repository.IMainRepository
 import com.fred_projects.education.main.model.entity.PracticalWork
-import com.fred_projects.education.main.use_case.sorting.SortType
-import com.fred_projects.education.main.use_case.sorting.SortingPW
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
+import com.fred_projects.education.main.use_case.sorting.*
+import kotlinx.coroutines.flow.*
 
 class GetPWData(private val repository: IMainRepository) {
     operator fun invoke(sortingPW: SortingPW = SortingPW.Date(SortType.Descending)): Flow<List<PracticalWork>> {

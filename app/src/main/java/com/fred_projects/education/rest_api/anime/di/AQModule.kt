@@ -1,11 +1,9 @@
 package com.fred_projects.education.rest_api.anime.di
 
 import com.fred_projects.database.MainDB
-import com.fred_projects.education.rest_api.anime.model.repository.AQRepository
-import com.fred_projects.education.rest_api.anime.model.repository.IAQRepository
+import com.fred_projects.education.rest_api.anime.model.repository.*
 import com.fred_projects.education.rest_api.anime.model.service.IAQService
-import dagger.Module
-import dagger.Provides
+import dagger.*
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit

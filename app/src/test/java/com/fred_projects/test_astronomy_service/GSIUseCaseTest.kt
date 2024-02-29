@@ -3,22 +3,13 @@ package com.fred_projects.test_astronomy_service
 import com.fred_projects.education.rest_api.Resource
 import com.fred_projects.education.rest_api.astronomy.model.entity.StarInfoEntity
 import com.fred_projects.education.rest_api.astronomy.model.repository.IStarInfoRepository
-import com.fred_projects.education.rest_api.astronomy.model.service.Host
-import com.fred_projects.education.rest_api.astronomy.model.service.StarInfo
+import com.fred_projects.education.rest_api.astronomy.model.service.*
 import com.fred_projects.education.rest_api.astronomy.use_case.GetStarInfo
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Test
+import org.junit.*
 import kotlin.coroutines.CoroutineContext
 import kotlin.time.Duration.Companion.seconds
 

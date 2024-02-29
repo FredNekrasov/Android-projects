@@ -1,7 +1,6 @@
 package com.fred_projects.education.rest_api.astronomy.model.service
 
-import androidx.room.ProvidedTypeConverter
-import androidx.room.TypeConverter
+import androidx.room.*
 import com.fred_projects.education.rest_api.astronomy.model.json.JsonParser
 import com.google.gson.reflect.TypeToken
 

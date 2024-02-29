@@ -2,14 +2,10 @@ package com.fred_projects.education.rest_api.astronomy.model.repository
 
 import com.fred_projects.database.dao.IAstronomyDao
 import com.fred_projects.education.rest_api.Resource
-import com.fred_projects.education.rest_api.astronomy.model.service.IAstronomyService
-import com.fred_projects.education.rest_api.astronomy.model.service.StarInfo
+import com.fred_projects.education.rest_api.astronomy.model.service.*
 import com.google.gson.JsonSyntaxException
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 import retrofit2.HttpException
 import java.io.IOException
 

@@ -1,15 +1,12 @@
 package com.fred_projects.education.jumping_rope.di
 
 import com.fred_projects.database.MainDB
-import com.fred_projects.education.jumping_rope.model.repository.IJRRepository
-import com.fred_projects.education.jumping_rope.model.repository.JRRepository
+import com.fred_projects.education.jumping_rope.model.repository.*
 import com.fred_projects.education.jumping_rope.use_case.JRUseCases
 import com.fred_projects.education.jumping_rope.use_case.crud.create_update.IAddJRRecord
 import com.fred_projects.education.jumping_rope.use_case.crud.delete.IDeleteJRRecord
-import com.fred_projects.education.jumping_rope.use_case.crud.read.IGetJRData
-import com.fred_projects.education.jumping_rope.use_case.crud.read.IGetJRRecord
-import dagger.Module
-import dagger.Provides
+import com.fred_projects.education.jumping_rope.use_case.crud.read.*
+import dagger.*
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton

@@ -1,8 +1,7 @@
 package com.fred_projects.education.main.di
 
 import com.fred_projects.database.MainDB
-import com.fred_projects.education.main.model.repository.IMainRepository
-import com.fred_projects.education.main.model.repository.MainRepository
+import com.fred_projects.education.main.model.repository.*
 import com.fred_projects.education.main.model.verification.check_date.ICheckDate
 import com.fred_projects.education.main.model.verification.check_image.ICheckImage
 import com.fred_projects.education.main.model.verification.check_lvl.ICheckLVL
@@ -11,12 +10,8 @@ import com.fred_projects.education.main.model.verification.check_pw.ICheckPW
 import com.fred_projects.education.main.model.verification.check_student.ICheckStudent
 import com.fred_projects.education.main.model.verification.check_variant.ICheckVariant
 import com.fred_projects.education.main.use_case.MainUseCases
-import com.fred_projects.education.main.use_case.crud.AddPWData
-import com.fred_projects.education.main.use_case.crud.DeletePWData
-import com.fred_projects.education.main.use_case.crud.GetPWData
-import com.fred_projects.education.main.use_case.crud.GetPWRecord
-import dagger.Module
-import dagger.Provides
+import com.fred_projects.education.main.use_case.crud.*
+import dagger.*
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton

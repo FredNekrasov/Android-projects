@@ -3,14 +3,9 @@ package com.fred_projects.test_astronomy_service
 import com.fred_projects.education.rest_api.Resource
 import com.fred_projects.education.rest_api.astronomy.model.entity.StarInfoEntity
 import com.fred_projects.education.rest_api.astronomy.model.repository.IStarInfoRepository
-import com.fred_projects.education.rest_api.astronomy.model.service.Host
-import com.fred_projects.education.rest_api.astronomy.model.service.StarInfo
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.yield
+import com.fred_projects.education.rest_api.astronomy.model.service.*
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 import retrofit2.HttpException
 import java.io.IOException
 

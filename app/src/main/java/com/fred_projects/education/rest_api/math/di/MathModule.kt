@@ -1,12 +1,10 @@
 package com.fred_projects.education.rest_api.math.di
 
 import com.fred_projects.database.MainDB
-import com.fred_projects.education.rest_api.math.model.repository.IMSRepository
-import com.fred_projects.education.rest_api.math.model.repository.MSRepository
+import com.fred_projects.education.rest_api.math.model.repository.*
 import com.fred_projects.education.rest_api.math.model.service.IMathService
 import com.fred_projects.education.rest_api.math.use_case.GetSolutionFMS
-import dagger.Module
-import dagger.Provides
+import dagger.*
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit

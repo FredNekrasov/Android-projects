@@ -1,7 +1,6 @@
 package com.fred_projects
 
-import com.fred_projects.education.solving_the_inequality.mvvm.Model
-import com.fred_projects.education.solving_the_inequality.mvvm.Solution
+import com.fred_projects.education.solving_the_inequality.mvvm.*
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
