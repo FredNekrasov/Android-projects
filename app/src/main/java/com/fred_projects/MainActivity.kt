@@ -22,12 +22,13 @@ import com.fred_projects.ui.message
 import com.fred_projects.ui.theme.FredProjectsTheme
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
+import java.util.UUID
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var int = 0
+        var fileName = UUID.randomUUID()
         setContent {
             FredProjectsTheme {
                 Surface(Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
@@ -36,22 +37,22 @@ class MainActivity : ComponentActivity() {
                     var imageLoader by remember { mutableStateOf(false) }
                     val launcher = rememberLauncherForActivityResult(ActivityResultContracts.TakePicture(), onResult = { imageLoader = it })
                     val launcherPermission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission(), onResult = { if (!it) message(getString(R.string.error)) })
-                    NavHost(navController, startDestination = ScreensRoute.MainList.route){
-                        composable(route = ScreensRoute.MainList.route){
+                    NavHost(navController, ScreensRoute.MainList.route){
+                        composable(ScreensRoute.MainList.route){
                             MainList(navController, this@MainActivity)
                         }
-                        composable(route = ScreensRoute.AddEditPage.route + "?id={id}", arguments = listOf(navArgument("id"){
+                        composable(ScreensRoute.AddEditPage.route + "?id={id}", listOf(navArgument("id"){
                             type = NavType.IntType
                             defaultValue = -1
                         })){
                             CUItem(navController, {
-                                val file = File(filesDir, "fred$int.jpg")
+                                val file = File(filesDir, "fred$fileName.jpg")
                                 val uri = FileProvider.getUriForFile(this@MainActivity, AUTHORITY, file)
                                 val result = this@MainActivity.checkSelfPermission("android.permission.CAMERA")
                                 if (result == PackageManager.PERMISSION_GRANTED) {
                                     launcher.launch(uri)
                                 } else launcherPermission.launch(CAMERA_PERMISSION)
-                                int++
+                                fileName = UUID.randomUUID()
                                 return@CUItem uri
                             })
                         }
