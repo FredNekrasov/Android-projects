@@ -7,5 +7,5 @@ data class AnimeQuotesDTO(
     val character: String,
     val quote: String
 ){
-    fun toAnimeQuotesEntity(): AnimeQuotesEntity = AnimeQuotesEntity(anime, character, quote)
+    fun toAnimeQuotesEntity(): AnimeQuotesEntity = AnimeQuotesEntity(anime.lowercase(), character, quote)
 }
