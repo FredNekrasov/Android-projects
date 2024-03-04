@@ -17,7 +17,7 @@ class AnimeQuotesVM @Inject constructor(private val repository: IAQRepository) :
         viewModelScope.launch {
             if (anime.isEmpty() || anime.isBlank()) resultMSF.emit(Resource.ERROR to null)
             else {
-                repository.getAQ(anime).collectLatest {
+                repository.getAQ(anime.lowercase()).collectLatest {
                     resultMSF.emit(it)
                 }
             }

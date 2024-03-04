@@ -1,6 +1,5 @@
 package com.fred_projects.education.rest_api.astronomy.view
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
